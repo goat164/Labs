@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@model Employee
+
+@{
+    ViewData["Title"] = SharedLocalizer["Add New Employee"];
+}
+
+<h1>@SharedLocalizer["Add New Employee"]</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["FirstName"]</label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["LastName"]</label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Position"]</label>
+                <input asp-for="Position" class="form-control" />
+                <span asp-validation-for="Position" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["InsuranceNumber"]</label>
+                <input asp-for="InsuranceNumber" class="form-control" />
+                <span asp-validation-for="InsuranceNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["EmployedSince"]</label>
+                <input asp-for="EmployedSince" class="form-control" />
+                <span asp-validation-for="EmployedSince" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Salary"]</label>
+                <input asp-for="Salary" class="form-control" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["WarningsCount"]</label>
+                <input asp-for="WarningsCount" class="form-control" />
+                <span asp-validation-for="WarningsCount" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Create"]" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">@SharedLocalizer["Back To List"]</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

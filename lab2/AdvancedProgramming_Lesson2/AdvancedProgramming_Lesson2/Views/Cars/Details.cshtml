@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@model Car
+
+@{ ViewData["Title"] = SharedLocalizer["Details"]; }
+
+<h1>@SharedLocalizer["Car Details"]</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @SharedLocalizer["Name"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt class="col-sm-2">
+            @SharedLocalizer["ProductionDate"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductionDate)
+        </dd>
+
+        <dt class="col-sm-2">
+            @SharedLocalizer["Type"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt class="col-sm-2">
+            @SharedLocalizer["EngineCapacity"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EngineCapacity)
+        </dd>
+
+        <dt class="col-sm-2">
+            @SharedLocalizer["Power"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Power)
+        </dd>
+
+        <dt class="col-sm-2">
+            @SharedLocalizer["Price"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">@SharedLocalizer["Edit"]</a> |
+    <a asp-action="Index">@SharedLocalizer["Back To List"]</a>
+</div>

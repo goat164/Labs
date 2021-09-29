@@ -1,0 +1,87 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@model IEnumerable<Employee>
+
+@{
+    ViewData["Title"] = SharedLocalizer["Employees"];
+}
+
+<h1>@SharedLocalizer["Employees"]</h1>
+
+<p>
+    <a asp-action="Create">@SharedLocalizer["Add New Employee"]</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @SharedLocalizer["FirstName"]
+            </th>
+
+            <th>
+                @SharedLocalizer["LastName"]
+            </th>
+
+            <th>
+                @SharedLocalizer["EmployedSince"]
+            </th>
+
+            <th>
+                @SharedLocalizer["InsuranceNumber"]
+            </th>
+
+            <th>
+                @SharedLocalizer["Position"]
+            </th>
+
+            <th>
+                @SharedLocalizer["Salary"]
+            </th>
+
+            <th>
+                @SharedLocalizer["WarningsCount"]
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployedSince)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.InsuranceNumber)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.WarningsCount)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">@SharedLocalizer["Edit"]</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">@SharedLocalizer["Details"]</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">@SharedLocalizer["Delete"]</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

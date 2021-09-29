@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Book CRUD</title>
+    <style>
+        input[type='submit'], button, [aria-label] {
+            cursor: pointer;
+        }
+
+        #spoiler {
+            display: none;
+        }
+
+        table {
+            font-family: Arial, sans-serif;
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+
+        .panel {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .panel li {
+            display: inline-block;
+            font-size: 20px;
+            padding: 20px;
+        }
+
+        th {
+            background-color: #0066CC;
+            color: white;
+        }
+
+        td {
+            border: 1px solid;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+        <ul class="panel">
+            <li>
+                Podaj tytul: <input type="text" id="add-name">
+            </li>
+            
+        </ul>
+        <ul class="panel">
+            <li>
+                Podaj autora: <input type="text" id="add-author">
+            </li>
+            <li>
+                <input type="submit" value="Add">
+            </li>
+        </ul>
+    </form>
+    <div id="spoiler">
+        <h3>Edit</h3>
+        <form action="javascript:void(0);" method="POST" onsubmit="updateBook()">
+            <ul class="panel">
+                <li>
+                    <input type="hidden" id="edit-id">
+                    Nazwa: 
+                    <input type="text" id="edit-name">
+                </li>
+
+            </ul>
+            <ul class="panel">
+                <li>
+                    Autor:
+                    <input type="text" id="edit-author">
+                </li>
+                <li>
+                    <input type="submit" value="Save">
+                </li>
+            </ul>
+        </form>
+    </div>
+    <table>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Author</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tbody id="books"></tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="ksiazka.js"></script>
+</body>
+</html>

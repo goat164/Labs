@@ -1,0 +1,10 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@{
+    ViewData["Title"] = SharedLocalizer["About"];
+}
+
+<h1>@SharedLocalizer["About Me #1"]</h1>
+<h2>@SharedLocalizer["About Me #2"]</h2>

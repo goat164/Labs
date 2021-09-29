@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@model AdvancedProgramming_Lesson2.Models.Movie
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@{ ViewData["Title"] = SharedLocalizer["Delete"]; }
+
+<h1>@SharedLocalizer["Delete Record"]</h1>
+
+<h3>@SharedLocalizer["Sure To Delete"]</h3>
+<div>
+    <h4>@SharedLocalizer["Movie"]</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @SharedLocalizer["Title"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @SharedLocalizer["Release Date"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+        <dt class="col-sm-2">
+            @SharedLocalizer["Genre"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+        <dt class="col-sm-2">
+            @SharedLocalizer["Price"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @SharedLocalizer["Score"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+        <dt class="col-sm-2">
+            @SharedLocalizer["IsSeen"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IsSeen)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="@SharedLocalizer["Delete"]" class="btn btn-danger" /> |
+        <a asp-action="Index">@SharedLocalizer["Back To List"]</a>
+    </form>
+</div>

@@ -1,0 +1,35 @@
+﻿@page
+@{ ViewData["Title"] = "History"; }
+
+@model HistoryModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@*@model IEnumerable<AdvancedProgramming_Lesson4.Data.Message>*@
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                User
+            </th>
+            <th>
+                Message
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Messages)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>People CRUD</title>
+    <style>
+        input[type='submit'], button, [aria-label] {
+            cursor: pointer;
+        }
+
+        #spoiler {
+            display: none;
+        }
+
+        table {
+            font-family: Arial, sans-serif;
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+
+        .panel {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .panel li {
+            display: inline-block;
+            font-size: 20px;
+            padding: 20px;
+        }
+
+        th {
+            background-color: #0066CC;
+            color: white;
+        }
+
+        td {
+            border: 1px solid;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+        <ul class="panel">
+            <li>
+                Podaj imie: <input type="text" id="add-name">
+            </li>
+            
+        </ul>
+        <ul class="panel">
+            <li>
+                Podaj nazwisko: <input type="text" id="add-surname">
+            </li>
+            <li>
+                <input type="submit" value="Add">
+            </li>
+        </ul>
+    </form>
+    <div id="spoiler">
+        <h3>Edit</h3>
+        <form action="javascript:void(0);" method="POST" onsubmit="updatePerson()">
+            <ul class="panel">
+                <li
+                    <input type="hidden" id="edit-id">
+                    Imie: 
+                    <input type="text" id="edit-name">
+                </li>
+
+            </ul>
+            <ul class="panel">
+                <li>
+                    Nazwisko:
+                    <input type="text" id="edit-surname">
+                </li>
+                <li>
+                    <input type="submit" value="Save">
+                </li>
+            </ul>
+        </form>
+    </div>
+    <table>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tbody id="persons"></tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="osoba.js"></script>
+</body>
+</html>

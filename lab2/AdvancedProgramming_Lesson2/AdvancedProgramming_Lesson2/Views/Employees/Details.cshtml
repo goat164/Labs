@@ -1,0 +1,67 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@model Employee
+
+@{
+    ViewData["Title"] = SharedLocalizer["Delete"];
+}
+
+<h1>@SharedLocalizer["Details"]</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @SharedLocalizer["FirstName"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt class="col-sm-2">
+            @SharedLocalizer["LastName"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt class="col-sm-2">
+            @SharedLocalizer["Position"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt class="col-sm-2">
+            @SharedLocalizer["EmployedSince"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployedSince)
+        </dd>
+
+        <dt class="col-sm-2">
+            @SharedLocalizer["InsuranceNumber"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InsuranceNumber)
+        </dd>
+
+        <dt class="col-sm-2">
+            @SharedLocalizer["Salary"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+        
+        <dt class="col-sm-2">
+            @SharedLocalizer["WarningsCount"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WarningsCount)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">@SharedLocalizer["Edit"]</a> |
+    <a asp-action="Index">@SharedLocalizer["Back To List"]</a>
+</div>
